@@ -864,6 +864,27 @@ nets = dict(
         DUMB_SCRYPT_DIFF=1,
         DUST_THRESHOLD=0.001e8,
     ),
+    amkoin=math.Object(
+        P2P_PREFIX='ddeeaaf0'.decode('hex'), #messagestart
+        P2P_PORT=23032,
+        ADDRESS_VERSION=66, #pubkey_address
+        RPC_PORT=32023,
+        RPC_CHECK=defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
+            'amkoinaddress' in (yield bitcoind.rpc_help()) and
+            not (yield bitcoind.rpc_getinfo())['testnet']
+        )),
+        SUBSIDY_FUNC=lambda height: 2300,
+        POW_FUNC=data.hash256,
+        BLOCK_PERIOD=30, # s
+        SYMBOL='AMK',
+        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'amkoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/amkoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.amkoin'), 'amkoin.conf'),
+        BLOCK_EXPLORER_URL_PREFIX='http://107.170.20.118/BlockCrawler/block_crawler.php?block_hash=',
+        ADDRESS_EXPLORER_URL_PREFIX='',
+        TX_EXPLORER_URL_PREFIX='http://107.170.20.118/BlockCrawler/block_crawler.php?block_hash=transaction=',
+        SANE_TARGET_RANGE=(2**256//2**32//1000 - 1, 2**256//2**32 - 1),
+        DUMB_SCRYPT_DIFF=1,
+        DUST_THRESHOLD=1e8,
+    ),
 
 )
 for net_name, net in nets.iteritems():
