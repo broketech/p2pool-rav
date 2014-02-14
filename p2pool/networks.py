@@ -785,7 +785,7 @@ pwnycoin=math.Object(
         MAX_TARGET=2**256//2**32 - 1,
         PERSIST=True,
         WORKER_PORT=26662,
-        BOOTSTRAP_ADDRS='192.227.238.236 pool.broketech.tk'.split(' '),
+        BOOTSTRAP_ADDRS='192.227.238.236'.split(' '),
         ANNOUNCE_CHANNEL='#p2pool-alt',
         VERSION_CHECK=lambda v: True,
     ),
