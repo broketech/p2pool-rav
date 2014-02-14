@@ -917,7 +917,7 @@ pwnycoin=math.Object(
         )),
         SUBSIDY_FUNC=lambda height: 3*100000000 if height<8640  else 2048*100000000 >> (height * 1)//172800,
         POW_FUNC=data.hash256,
-        BLOCK_PERIOD=180, # s
+        BLOCK_PERIOD=30, # s
         SYMBOL='PWNY',
         CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'pwnycoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/pwnycoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.pwnycoin'), 'pwnycoin.conf'),
         BLOCK_EXPLORER_URL_PREFIX='',
