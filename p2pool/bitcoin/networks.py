@@ -915,7 +915,7 @@ pwnycoin=math.Object(
             'pwnycoinaddress' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
         )),
-        SUBSIDY_FUNC=lambda height: 3*100000000 if height<8640  else 2048*100000000 >> (height * 1)//172800,
+        SUBSIDY_FUNC=lambda height: 6144*100000000 if height<8640  else 2048*100000000 >> (height * 1)//172800,
         POW_FUNC=data.hash256,
         BLOCK_PERIOD=30, # s
         SYMBOL='PWNY',
