@@ -735,6 +735,24 @@ nets = dict(
         ANNOUNCE_CHANNEL='#p2pool-alt',
         VERSION_CHECK=lambda v: True,
     ),
+    amkoin=math.Object(
+        PARENT=networks.nets['amkoin'],
+        SHARE_PERIOD=60, # seconds target spacing
+        CHAIN_LENGTH=12*60*60//30, # shares
+        REAL_CHAIN_LENGTH=12*60*60//30, # shares
+        TARGET_LOOKBEHIND=20, # shares coinbase maturity
+        SPREAD=20, # blocks
+        IDENTIFIER='F1F1F4D3B4F68AB1'.decode('hex'),
+        PREFIX='F1F4D4A541C11DF9'.decode('hex'),
+        P2P_PORT=52424,
+        MIN_TARGET=0,
+        MAX_TARGET=2**256//2**32 - 1,
+        PERSIST=False,
+        WORKER_PORT=52323,
+        BOOTSTRAP_ADDRS='pool.broketech.tk'.split(' '),
+        ANNOUNCE_CHANNEL='#p2pool-alt',
+        VERSION_CHECK=lambda v: True,
+    ),
 
 )
 for net_name, net in nets.iteritems():
