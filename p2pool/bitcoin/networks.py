@@ -878,9 +878,9 @@ nets = dict(
         BLOCK_PERIOD=30, # s
         SYMBOL='CTM',
         CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'continuumcoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/continuumcoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.continuumcoin'), 'continuumcoin.conf'),
-        BLOCK_EXPLORER_URL_PREFIX='http://singleblade.info/ctmcoin/block_crawler.php?block_hash=',
-        ADDRESS_EXPLORER_URL_PREFIX='',
-        TX_EXPLORER_URL_PREFIX='http://singleblade.info/ctmcoin/block_crawler.php?transaction=',
+        BLOCK_EXPLORER_URL_PREFIX='http://ctmchain.com/block/',
+        ADDRESS_EXPLORER_URL_PREFIX='http://ctmchain.com/address/',
+        TX_EXPLORER_URL_PREFIX='http://ctmchain.com/tx/',
         SANE_TARGET_RANGE=(2**256//2**32//1000 - 1, 2**256//2**32 - 1),
         DUMB_SCRYPT_DIFF=1,
         DUST_THRESHOLD=1e8,
